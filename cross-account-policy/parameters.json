@@ -1,0 +1,10 @@
+[
+  {
+    "ParameterKey": "CrossAccountLambdaArn",
+    "ParameterValue": "arn:aws:lambda:eu-west-1:<ACCOUNT-1-NUMBER>:function:my-awesome-lambda"
+  },
+  {
+    "ParameterKey": "Roles",
+    "ParameterValue": [ "role-1", "role-2" ]
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "AWSTemplateFormatVersion":"2010-09-09",
+  "Description":"Provides rules for the cluster to interact with other AWS resources",
+  "Parameters": {
+    "CrossAccountLambdaArn": {
+      "Description": "The name of the lambda function",
+      "Type": "String"
+    },
+    "Roles": {
+      "Description": "The list of roles that the policy will be attached to",
+      "Type": "List<String>"
+    }
+  },
+  "Resources":{
+    "readWrite":{
+      "Type":"AWS::IAM::ManagedPolicy",
+      "Properties":{
+        "Description":"Provides access to invoke lambda from a different account",
+        "ManagedPolicyName": "cross-account-lambda-invoke-policy",
+        "Roles": { "Ref" : "Roles" },
+        "PolicyDocument":{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                  "lambda:InvokeFunction"
+              ],
+              "Resource": { "Ref": "CrossAccountLambdaArn"},
+              "Effect": "Allow"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "ParameterKey": "LambdaName",
+    "ParameterValue": "my-awesome-lambda"
+  },
+  {
+    "ParameterKey": "InvokerRoleArn",
+    "ParameterValue": "arn:aws:iam::<ACCOUNT-2-NUMBER>:role/role-name"
+  }
+]
